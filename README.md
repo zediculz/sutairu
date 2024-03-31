@@ -14,7 +14,6 @@ Button
 
 ## Blocks
 Nav
-Logo
 Link
 AlertBody
 AlertHead
@@ -22,6 +21,10 @@ AlertIcon
 Box
 NotifyHead
 NotifyBody
+Text
+Heading
+Avatar
+Icon
 
 ## tooling
 useTheme

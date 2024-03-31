@@ -5,15 +5,15 @@ import Container from './utils'
 // header main tag and its blocks
 import Header from './components/header/Header'
 import Nav from './components/header/Nav'
-import Logo from './components/header/Logo'
+import Heading from './components/header/Logo'
 import Link from './components/header/Link'
 
 // Block, Flex stack and Box component
 import Block from './components/body/Block'
 import HStack from './components/body/HStack'
 import VStack from './components/body/VStack'
-import {Box} from './components/body/Block'
-
+import { Box } from './components/body/Block'
+import Text from './components/body/text'
 // alerts main and alert blocks
 import Alert from './components/alert/alert'
 import { AlertBody, AlertHead, AlertIcon } from './components/alert/alert'
@@ -25,6 +25,11 @@ import { NotifyBody, NotifyHead } from './components/alert/notify'
 // button
 import Button from './components/button/index'
 
+// more
+import Avatar from './components/media/avatar'
+import Icon from './components/media/icon'
+
+
 // tooling
 import {useTheme, useQTheme} from './utils/utils'
 
@@ -32,15 +37,15 @@ export {
   Container,
   Header,
   Nav,
-  Logo,
+  Heading, Text,
   Link,
   HStack,
   VStack,
-  Block,
-  Box,
+  Block, Box,
   Notify, NotifyHead, NotifyBody, 
   useTheme,
   useQTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
-  Button
+  Button,
+  Icon, Avatar
 }

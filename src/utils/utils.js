@@ -43,4 +43,21 @@ export const useQTheme = (query, qStyle) => {
     qtheme.use(qStyle)
 }
 
+export const aliasResolver = (props) => {
+    let style = {
+      width: props.w === undefined ? 'initial' : props.w,
+      height: props.h === undefined ? 'initial' : props.h,
+      alignItems: props.align === undefined ? 'initial' : props.align,
+      justifyContent: props.justify === undefined ? 'initial' : props.justify,
+      flexDirection: props.dir === undefined ? 'initial' : props.dir,
+      backgroundColor: props.bg === undefined ? 'initial' : props.bg,
+      color: props.fg === undefined ? 'initial' : props.fg,
+      flex: props.flex === undefined || props.flex === '' ? 'initial' : props.flex
+    }
+  
+    return style
+  
+}
+
+
 export const getQTheme = () => theme.get()

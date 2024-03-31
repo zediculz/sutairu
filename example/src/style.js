@@ -21,28 +21,6 @@ const theme = {
         fontSize: gt.font.secondary,
         backgroundColor: gt.backgroundColor
     },
-    headerBlock: {
-        color: gt.color,
-        fontSize: gt.font.primary,
-        backgroundColor: gt.backgroundColor,
-        width: '100%',
-        height: '300px',
-        ...gt.flex,
-    },
-    vStack: {
-        color: gt.color,
-        fontSize: gt.font.secondary,
-        backgroundColor: gt.backgroundColor,
-        width: '100%',
-        height: '200px'
-    },
-
-    box: {
-        height: '80%',
-        flexBasis: '30%',
-        backgroundColor: '#fff',
-        ...gt.flex
-    },
     appAlert: {
         margin: '1em'
     }

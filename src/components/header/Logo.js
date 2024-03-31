@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
-const Logo = (props) => {
-  return <Fragment>{props.children}</Fragment>
+const Heading = (props) => {
+  return <h1>{props.children}</h1>
 }
 
-export default Logo
+export default Heading
