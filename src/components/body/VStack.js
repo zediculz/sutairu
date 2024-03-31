@@ -1,11 +1,13 @@
 import React from 'react'
 import style from '../../index.css'
+import { getTheme } from '../../utils/utils'
 
 const VStack = (props) => {
-  const theme = props.theme
+  const {name} = props
+  const theme = getTheme()
   const childs = props.children
   return (
-    <div style={theme} className={style.vstack}>
+    <div style={theme[name]} className={style.firstStack}>
       {childs}
     </div>
   )

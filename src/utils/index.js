@@ -5,7 +5,7 @@ import style from '../index.css'
 
 function Container(props) {
   return (
-    <section style={props.theme} className={style.maincontainer}>
+    <section className={style.maincontainer}>
       {props.children}
     </section>
   )

@@ -1,19 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import {Container, useTheme} from 'sutairu'
+import {Container, useTheme, useQTheme} from 'sutairu'
+import theme from './style.js'
 
 import 'sutairu/dist/index.css'
 
-const theme = useTheme({
-    backgroundColor: '#eaebf0',
-    color: 'brown',
-    font: {
-        primary: 18,
-        secondary: 14
-    }
+useTheme(theme)
+
+useQTheme('425px', {
+    color: 'red',
+    backgroundColor: 'brown'
 })
 
-ReactDOM.render(<Container theme={theme}>
-        <App />
-    </Container>, document.getElementById('root'))
+ReactDOM.render(<Container><App /></Container>, document.getElementById('root'))

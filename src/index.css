@@ -5,18 +5,28 @@
 }
 
 
+/*MAIN CONTAINER*/
+
 .maincontainer {
     width: 100%;
-    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    scroll-behavior: smooth;
 }
+
+/*HEADER TAG AND COMPONENTS*/
 
 header {
     width: 100%;
-    height: 70px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/*HEADER LOGO AND WRAP COMPONENT*/
 
 header .logowrap {
     width: 45%;
@@ -24,8 +34,10 @@ header .logowrap {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
 }
 
+/*HEADER NAVIGATION*/
 
 header nav {
     width: 40%;
@@ -39,15 +51,16 @@ header nav {
         align-items: center;
         justify-content: space-evenly;
         list-style: none;
+
         & li {
             margin-left: 12px;
+            cursor: pointer;
         }
     }
 }
 
 
-
-
+/*DOUBLE HEADER COMPONENT*/
 .doublenav {
     width: 100%;
     height: 70px;
@@ -73,20 +86,25 @@ header nav {
     }
 }
 
-.hstack {
+
+/*STACKS STYLING*/
+
+.firstStack {
     width: 100%;
     height: 300px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.hstack div {
+.firstStack div {
     width: 30%;
     height: 90%;
+    border-radius: 6px;
 }
 
-.vstack {
+.secondStack {
     width: 100%;
     height: 300px;
     display: flex;
@@ -95,7 +113,283 @@ header nav {
     justify-content: space-evenly;
 }
 
-.vstack div {
+.secondStack div {
     width: 90%;
     height: 30%;
+    border-radius: 6px;
+}
+
+
+/*ALERT WRAP AND COMPONENTS*/
+
+.alertwrap {
+    width: 40%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: center;
+    border: 1px solid #222;
+    border-radius: 6px;
+    box-shadow: 0px 1px 1px #222;
+    cursor: pointer;
+}
+
+.alertwrap .alerthead {
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.alertwrap .alertbody {
+    width: 90%;
+    & h4 {
+        font-size: 17px;
+    }
+
+    & p {
+        font-size: 13px;
+    }
+}
+
+
+/*NOTIFICATION WRAP AND COMPONENTS*/
+
+.notifywrap {
+    width: 50%;
+    height: 70px;
+    position: absolute;
+    top: 90%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 1px #222;
+    cursor: pointer;
+    color: #fff;
+    transition: all ease-in-out;
+    animation-name: onDisplay;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.notifywrap .notifybody {
+    width: 80%;
+
+    & h4 {
+        font-size: 17px;
+    }
+
+    & p {
+        font-size: 13px;
+    }
+}
+
+.notifywrap .notifyhead {
+    width: 10%;
+    & p {
+        font-size: 14px;
+        cursor: pointer;
+        transition: all .3s ease-in;
+        &:hover {
+            font-size: 15px;
+        }
+    }
+}
+
+
+
+/*NOTIFY REMOVE CLASS*/
+.removeDom {display: none;}
+
+
+.button {
+    color: red;
+}
+
+/*ANIMATIONS*/
+@keyframes onRemove {
+    0% {
+        opacity: 1;  
+    }
+    90% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes onDisplay {
+    0% {
+        opacity: 0;  
+    }
+    25% {
+        opacity: .5;
+    }
+    50% {
+        opacity: .8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+
+    .maincontainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        scroll-behavior: smooth;
+    }
+
+    header {
+        width: 100%;
+        height: 100px;
+    }
+
+    header .logowrap {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+
+    header nav {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        & ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            list-style: none;
+
+            & li {
+                margin-left: 12px;
+            }
+        }
+    }
+
+
+
+    .doublenav {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .doublenav .logowrap {
+        width: 20%;
+        justify-content: center;
+    }
+
+
+    .doublenav .nav {
+        width: 40%;
+        height: 100%;
+        justify-content: center;
+
+        & span {
+            list-style: none;
+            padding-left: 6px;
+        }
+    }
+
+    .firstStack {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow-x: hidden;
+        overflow-y: auto;
+        flex-wrap: wrap;
+        
+    }
+
+    .firstStack div {
+        width: 30%;
+        height: 90%;
+    }
+
+    .secondStack {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+    .secondStack div {
+        width: 90%;
+        height: 30%;
+    }
+
+    .alertwrap {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+
+    .alertwrap .alerthead {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .alertwrap .alertbody {
+        width: 80%;
+    }
+
+    .notifywrap {
+        width: 90%;
+        height: 80px;
+        top: 85%;
+    }
+    
+    .notifywrap .notifybody {
+        width: 80%;
+    
+        & h4 {
+            font-size: 15px;
+        }
+    
+        & p {
+            font-size: 12px;
+        }
+    }
+    
+    .notifywrap .notifyhead {
+        width: 10%;
+        & p {
+            font-size: 13px;
+            &:hover {
+                font-size: 13px;
+            }
+        }
+    }
+
 }

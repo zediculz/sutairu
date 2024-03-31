@@ -1,12 +1,14 @@
 import React from 'react'
 import style from '../../index.css'
+import { getTheme } from '../../utils/utils'
+
 
 function Header(props) {
   const type = props.type
   const children = props.children
-  const { theme } = props
+  const {header} = getTheme()
   const typetag = headerVariants.filter((e) => e.type === type)[0]
-  return <typetag.child children={children} theme={theme} />
+  return <typetag.child children={children} theme={header} />
 }
 
 const LogoHeader = (props) => {

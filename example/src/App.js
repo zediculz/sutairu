@@ -1,86 +1,66 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, {Fragment} from 'react'
-import {Header, Logo, HStack, Block, VStack, Box, useTheme} from 'sutairu'
+import React, {Fragment, useState} from 'react'
+import {Header, Logo, VStack, Block, Box, Alert, 
+  AlertBody, AlertHead, AlertIcon, Notify, 
+  NotifyHead, NotifyBody, Button} from 'sutairu'
 import 'sutairu/dist/index.css'
 
 const App = () => {
-  
+  const [open, setOpen] = useState('close')
   return (
     <Fragment>
 
-        <Header type="logo" theme={htheme}>
+        <Header type="logo">
           <Logo>
-            <h1>App Name</h1>
+            <h1>Sutairu</h1>
           </Logo>
-      </Header>
+        </Header>
 
-      <Block theme={b}>
-        <h2>important header</h2>
-        <p>im a block child</p>
+      <Block flex={"center"} name={"headerBlock"}>
+        <h2>Sutairu UI</h2>
+        <p>react biulding blocks components framework</p>
+        <Button click={e => setOpen('open')}>Get started</Button>
       </Block>
 
-      <HStack theme={hvar}>
-        <Box theme={hbox}>
+      <VStack name={"vStack"}>
+        <Box name={'box'}>
+          <h3>Important 1</h3>
           <p>hi am the hstack box</p>
         </Box>
-        <Box theme={hbox}>
+        <Box name={'box'}>
+          <h3>Important 2</h3>
           <p>hi am the hstack box too</p>
         </Box>
-        <Box theme={hbox}>
-          <p>hi, yeah me too</p>
+        <Box name={'box'}>
+          <span>#</span>
+          <h3>Important 2</h3>
+          <p>hi am the hstack box too</p>
         </Box>
-      </HStack>
-
-      <VStack theme={vvar}>
-        <Box theme={vbox}>
-          <p>hi am the vstack box</p>
-        </Box>
-        <Box theme={vbox}>
-          <p>hi am the vstack box too</p>
-        </Box>
+        
       </VStack>
 
-      <Block theme={b}>
-        <h2>important header</h2>
-        <p>im a block child</p>
-      </Block>
+      <Alert name='appAlert'>
+          <AlertIcon src=""/>
+          <AlertHead>
+            new alert title
+          </AlertHead>
+          <AlertBody>
+              new alert body and content
+          </AlertBody>
+      </Alert>
 
+      <Notify type="default" state={open} close={setOpen}>
+        <NotifyHead>
+          Notification title
+        </NotifyHead>
+        <NotifyBody>
+          beis bag as gify from lg when i wemnt to there event few weeks ago
+        </NotifyBody>
+      </Notify>
+
+    
     </Fragment>
   )
-}
-
-const htheme = useTheme({
-  type: 'logo',
-  color: '#222',
-  fontSize: '15px',
-})
-
-const hvar = {
-  height: '200px',
-  width: '100%'
-}
-
-const hbox = {
-  height: '80%',
-  width: '30%',
-  backgroundColor: 'green',
-}
-
-const vvar = {
-  height: '300px',
-  width: '100%'
-}
-
-const vbox = {
-  height: '40%',
-  width: '90%',
-  backgroundColor: 'green',
-}
-
-const b = {
-  height: '200px',
-  width: '100%',
-  backgroundColor: 'pink',
 }
 
 export default App
