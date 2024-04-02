@@ -1,24 +1,14 @@
 
-const gt = {
+export const gt = {
     backgroundColor: '#eaebf0',
-    color: '#222',
-    font: {
-        primary: '20px',
-        secondary: '13px',
-    },
-    flex: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column'
-    }
+    color: '#222'
 }
 
-
-const theme = {
+export const theme = {
     header: {
+        width: '100%',
+        height: '80px',
         color: gt.color,
-        fontSize: gt.font.secondary,
         backgroundColor: gt.backgroundColor
     },
     appAlert: {
@@ -26,4 +16,15 @@ const theme = {
     }
 }
 
-export default theme
+
+export const query = {
+    header: {
+        width: '100%',
+        height: '80px',
+        color: gt.color,
+        backgroundColor: gt.backgroundColor
+    },
+    appAlert: {
+        margin: '1em'
+    }
+}

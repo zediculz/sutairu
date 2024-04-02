@@ -1,14 +1,18 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import style from '../../index.css'
 import { getTheme, aliasResolver, getNTheme } from '../../utils/utils'
 
-function Nav(props) {
+
+function AppHeader(props) {
   let rStyle = aliasResolver(props)
   const {name} = props
   const theme = getTheme()
   const ntheme = getNTheme()
   const mStyle = {...theme, ...ntheme[name], ...rStyle}
 
-  return <nav style={mStyle}>{props.children}</nav>
+  return <div style={mStyle} className={style.appheader}>
+    {props.children}
+  </div>
 }
 
-export default Nav
+export default AppHeader

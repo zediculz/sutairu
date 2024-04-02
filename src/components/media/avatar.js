@@ -1,40 +1,45 @@
 import React from "react";
-import {getTheme} from '../../utils/utils'
+import {getTheme, getNTheme} from '../../utils/utils'
 import style from '../../index.css'
 
 const Avatar = (props) => {
     
-    const {src, user} = props
-    let rStyle = aliasResolver(props)
-    const {name} = props
+    const {user, nick, name, size, type, b} = props
+    
     const theme = getTheme()
-    const mStyle = {...theme[name], ...rStyle}
-    const an = src === undefined || src === '' ? generateAvatarName(user) : src
-    const avatartBackground = avatarBg(props.bg)
-
+    const ntheme = getNTheme()
+    const dSize = AvatarSize(size)
+    const rStyle = aliasResolver(props, theme)
+    const vStyle = AvatarVariant(type, theme)
+    const mStyle = {...theme, ...ntheme[name], ...rStyle, ...dSize, ...vStyle}
+    const child = nick === undefined || nick === '' ? generateAvatarName(user) : generateAvatarNick(nick)
+    
     return (
-        <div style={avatartBackground} className={style.avatarwrap}>
-            <span style={mStyle}>{an}</span>
+        <div style={mStyle} className={style.avatarwrap}>
+            <span>{child}</span>
         </div>
     )
 }
 
+// resolve avatar props
+// resolve avatar background props 
 
-export const aliasResolver = (props) => {
+export const aliasResolver = (props, gt) => {
     let style = {
-      width: props.w === undefined ? 'initial' : props.w,
-      height: props.h === undefined ? 'initial' : props.h,
-      alignItems: props.align === undefined ? 'initial' : props.align,
-      justifyContent: props.justify === undefined ? 'initial' : props.justify,
-      color: props.fg === undefined ? 'initial' : props.fg,
-      flex: props.flex === undefined || props.flex === '' ? 'initial' : props.flex,
+      alignItems: props.align === undefined ? 'center' : props.align,
+      justifyContent: props.justify === undefined ? 'center' : props.justify,
+      color: props.fg === undefined ? gt?.color : props.fg,
       FontSize: props.fsize === undefined || props.fsize === '' ? 'initial' : props.fsize,
+      backgroundColor: props.bg === undefined ? gt?.backgroundColor : props.bg,
+      border: props.b === undefined ? 'none' : props.b
     }
   
     return style
   
 }
 
+
+// generate avatar name 
 const generateAvatarName = (name) => {
     let _n = name.split(' ')
     let first = _n[0].slice(0, 1)
@@ -44,55 +49,59 @@ const generateAvatarName = (name) => {
    return init
 }
 
-
-export const avatarBg = (bg) => {
-    let style = {
-      backgroundColor: bg === undefined ? 'initial' : bg,
-    }
-    return style
+// generate avatar name in 1 value
+const generateAvatarNick = (nick) => {
+    let name = nick[0].slice(0, 1)
+    return name
 }
 
-const AvatarVariant = (type) => {
+
+
+// generate avatar variant 
+const AvatarVariant = (_type, gt) => {
+    let type = _type === undefined ? 'normal' : _type
+    let color
+
     const _v = [
+        {variant: 'normal', style: {}},
         {variant: 'outline', style: {
-            borderColor: ''
+            border: `1px solid ${gt.color}`
         }},
-
-        {size: 'm', style: {
-            width: '54px',
-            height: '54px'
-        }},
-
-        {size: 'l', style: {
-            width: '68px',
-            height: '68px'
+        {variant: 'thick', style: {
+            border: `4px solid ${gt.color}`
         }}
     ]
-    _v.map(s => {
-        if(s.size === size) return s.style
-    })
+
+    let n = _v.filter(t => t.variant === type)
+   return n[0].style
 }
 
-const AvatarSizes = (size) => {
+// generate and resolve avatar size 
+const AvatarSize = (_size) => {
+    let size = _size === undefined ? 'm' : _size
     const _s = [
         {size: 's', style: {
-            width: '45px',
-            height: '44px'
+            width: '40px',
+            height: '36px',
+            fontSize: '14px'
         }},
 
         {size: 'm', style: {
-            width: '54px',
-            height: '54px'
+            width: '50px',
+            height: '43px',
+            fontSize: '18px'
         }},
 
         {size: 'l', style: {
-            width: '68px',
-            height: '68px'
+            width: '65px',
+            height: '60px',
+            fontSize: '22px'
         }}
     ]
-    _s.map(s => {
-        if(s.size === size) return s.style
-    })
+
+   let n = _s.filter(s => s.size === size)
+   return n[0].style
+
 }
 
 export default Avatar

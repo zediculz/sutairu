@@ -1,12 +1,13 @@
 import React from 'react'
-import { getTheme, aliasResolver } from '../../utils/utils'
+import { getTheme, aliasResolver, getNTheme } from '../../utils/utils'
 import style from '../../index.css'
 
 const Block = (props) => {
   let rStyle = aliasResolver(props)
   const {name} = props
   const theme = getTheme()
-  const mStyle = {...theme[name], ...rStyle}
+  const ntheme = getNTheme()
+  const mStyle = {...theme, ...ntheme[name], ...rStyle}
   return <div style={mStyle} className={style.block}>{props.children}</div>
 }
 
@@ -20,7 +21,8 @@ export const Box = (props) => {
   let rStyle = aliasResolver(props)
   const {name} = props
   const theme = getTheme()
-  const mStyle = {...theme[name], ...rStyle}
+  const ntheme = getNTheme()
+  const mStyle = {...theme, ...ntheme[name], ...rStyle}
   return (
     <div style={mStyle}>{props.children}</div>
   )

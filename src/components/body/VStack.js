@@ -1,13 +1,15 @@
 import React from 'react'
 import style from '../../index.css'
-import { getTheme } from '../../utils/utils'
+import { getTheme, getNTheme } from '../../utils/utils'
 
 const VStack = (props) => {
-  const {name} = props
+  const {name, mquery} = props
   const theme = getTheme()
+  const ntheme = getNTheme()
   const childs = props.children
   let rStyle = aliasResolver(props)
-  const mStyle = {...theme[name], ...rStyle}
+  const mStyle = {...theme, ...ntheme[name], ...rStyle}
+  
   return (
     <div style={mStyle} className={style.firstStack}>
       {childs}

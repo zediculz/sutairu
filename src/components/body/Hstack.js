@@ -1,13 +1,14 @@
 import React from 'react'
 import style from '../../index.css'
-import { getTheme } from '../../utils/utils'
+import { getTheme, getNTheme } from '../../utils/utils'
 
 const HStack = (props) => {
   const {name} = props
   const theme = getTheme()
+  const ntheme = getNTheme()
   let rStyle = aliasResolver(props)
   const childs = props.children
-  const mStyle = {...theme[name], ...rStyle}
+  const mStyle = {...theme, ...ntheme[name], ...rStyle}
   return (
     <div style={mStyle} className={style.secondStack}>
       {childs}

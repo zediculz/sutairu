@@ -5,7 +5,7 @@ import Container from './utils'
 // header main tag and its blocks
 import Header from './components/header/Header'
 import Nav from './components/header/Nav'
-import Heading from './components/header/Logo'
+import Heading from './components/header/heading'
 import Link from './components/header/Link'
 
 // Block, Flex stack and Box component
@@ -31,7 +31,16 @@ import Icon from './components/media/icon'
 
 
 // tooling
-import {useTheme, useQTheme} from './utils/utils'
+import {useTheme, useNTheme} from './utils/utils'
+
+
+
+
+import AppHeader from './components/appHeader'
+
+
+
+
 
 export {
   Container,
@@ -44,8 +53,8 @@ export {
   Block, Box,
   Notify, NotifyHead, NotifyBody, 
   useTheme,
-  useQTheme,
+  useNTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
   Button,
-  Icon, Avatar
+  Icon, Avatar, AppHeader
 }

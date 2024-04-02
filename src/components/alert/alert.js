@@ -1,5 +1,5 @@
 import React from "react"
-import { getTheme } from "../../utils/utils"
+import { getTheme, getNTheme, aliasResolver } from "../../utils/utils"
 
 import style from '../../index.css'
 
@@ -10,14 +10,16 @@ const Alert = (props) => {
     const alertbodychild = props.children[2]
 
     const {type} = props
-    let variant = getVariant(alertVariant, type)
+    //let variant = getVariant(alertVariant, type)
 
     const {name} = props
     const theme = getTheme()
-    const s = {borderColor: variant.color, ...theme[name]}
+    const ntheme = getNTheme()
+    const rStyle = aliasResolver(props, theme)
+    const mStyle = {...ntheme[name], ...theme, ...rStyle}
 
     return (
-        <aside style={s} className={style.alertwrap}>
+        <aside style={mStyle} className={style.alertwrap}>
             <div className={style.alerthead}>
                 {alerticonchild}
             </div>
@@ -58,8 +60,8 @@ const alertVariant = [
     {name: 'warning', color: 'goldenrod'}
 ]
 
-const getVariant = (variant, type) => {
-    let selected = variant.filter(va => {
+const getVariant = (type) => {
+    let selected = alertVariant.filter(va => {
         if (va.name === type) return va 
     })
 

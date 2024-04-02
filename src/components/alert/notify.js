@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { getTheme } from "../../utils/utils"
+import { getTheme, getNTheme } from "../../utils/utils"
 
 import style from '../../index.css'
 
@@ -14,7 +14,8 @@ const Notify = (props) => {
 
     const {name} = props
     const theme = getTheme()
-    const s = {borderColor: variant.color, color: variant.color, backgroundColor: variant.bg, ...theme[name]}
+    const ntheme = getNTheme()
+    const s = {borderColor: variant.color, color: variant.color, backgroundColor: variant.bg, ...ntheme[name], theme}
 
     const {close} = props
 
