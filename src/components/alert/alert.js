@@ -1,6 +1,5 @@
 import React from "react"
-import { getTheme, getNTheme, aliasResolver } from "../../utils/utils"
-
+import { aR } from "../../utils/util"
 import style from '../../index.css'
 
 const Alert = (props) => {
@@ -10,13 +9,9 @@ const Alert = (props) => {
     const alertbodychild = props.children[2]
 
     const {type} = props
-    //let variant = getVariant(alertVariant, type)
-
-    const {name} = props
-    const theme = getTheme()
-    const ntheme = getNTheme()
-    const rStyle = aliasResolver(props, theme)
-    const mStyle = {...ntheme[name], ...theme, ...rStyle}
+    let variant = getVariant(alertVariant, type)
+   
+    const mStyle = aR(props)
 
     return (
         <aside style={mStyle} className={style.alertwrap}>

@@ -13,6 +13,7 @@ h6,
 p,
 span {
   padding: 4px;
+  text-transform: capitalize;
 }
 
 /*MAIN CONTAINER*/
@@ -168,6 +169,17 @@ header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*Box  flex wrap*/
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /*Avatar component*/

@@ -1,13 +1,8 @@
 import React, { Fragment } from 'react'
-import { getTheme, aliasResolver, getNTheme } from '../../utils/utils'
+import { aR } from '../../utils/util'
 
 function Nav(props) {
-  let rStyle = aliasResolver(props)
-  const {name} = props
-  const theme = getTheme()
-  const ntheme = getNTheme()
-  const mStyle = {...theme, ...ntheme[name], ...rStyle}
-
+  const mStyle = aR(props)
   return <nav style={mStyle}>{props.children}</nav>
 }
 

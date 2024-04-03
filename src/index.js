@@ -10,6 +10,7 @@ import Link from './components/header/Link'
 
 // Block, Flex stack and Box component
 import Block from './components/body/Block'
+import Box from './components/body/box'
 import Stack from './components/body/VStack'
 import Text from './components/body/text'
 // alerts main and alert blocks
@@ -29,9 +30,7 @@ import Icon from './components/media/icon'
 
 
 // tooling
-import {useTheme, useNTheme} from './utils/utils'
-
-
+import { setMedia, useTheme } from './utils/util'
 
 export {
   Container,
@@ -40,11 +39,10 @@ export {
   Heading, Text,
   Link,
   Stack,
-  Block,
+  Block, Box,
   Notify, NotifyHead, NotifyBody, 
   useTheme,
-  useNTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
   Button,
-  Icon, Avatar
+  Icon, Avatar, setMedia
 }

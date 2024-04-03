@@ -1,12 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import {Container, useTheme, useNTheme} from 'sutairu'
-import {theme, gt} from './style.js'
+import {Container, useTheme, setMedia} from 'sutairu'
+import {theme} from './style.js'
 
 import 'sutairu/dist/index.css'
 
-useTheme(gt)
-useNTheme(theme)
+useTheme(theme)
+
+setMedia({
+    base: '(min-width: 1024px)',
+    ip: '(max-width: 768px)',
+    mb: '(max-width: 425px)',
+    m: '(max-width: 375px)',
+})
 
 ReactDOM.render(<Container><App /></Container>, document.getElementById('root'))

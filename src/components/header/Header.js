@@ -1,12 +1,9 @@
 import React from 'react'
-import { getTheme, aliasResolver, getNTheme } from '../../utils/utils'
+import { aR } from '../../utils/util'
 
 function Header(props) {
-  const rStyle = aliasResolver(props)
-  const {name} = props
-  const theme = getTheme()
-  const ntheme = getNTheme()
-  const mStyle = {...theme, ...ntheme[name], ...rStyle}
+ 
+  const mStyle = aR(props)
 
   return <header style={mStyle}>{props.children}
   </header>

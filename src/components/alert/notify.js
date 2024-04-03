@@ -1,6 +1,6 @@
 import React, {useState} from "react"
-import { getTheme, getNTheme } from "../../utils/utils"
 
+import { aR } from "../../utils/util"
 import style from '../../index.css'
 
 const Notify = (props) => {
@@ -11,11 +11,8 @@ const Notify = (props) => {
 
     const {type} = props
     let variant = getVariant(notifyVariant, type)
-
-    const {name} = props
-    const theme = getTheme()
-    const ntheme = getNTheme()
-    const s = {borderColor: variant.color, color: variant.color, backgroundColor: variant.bg, ...ntheme[name], theme}
+   
+    const myStyle = {borderColor: variant.color, color: variant.color, backgroundColor: variant.bg}
 
     const {close} = props
 
@@ -29,7 +26,7 @@ const Notify = (props) => {
     }
 
     return (
-        <aside style={s} className={sl}>
+        <aside style={myStyle} className={sl}>
             <div className={style.notifybody}>
                 {notifyheadchild}
                 {notifybodychild}

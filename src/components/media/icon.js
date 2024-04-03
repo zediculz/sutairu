@@ -1,5 +1,5 @@
 import React from "react";
-import {getTheme} from '../../utils/utils'
+
 import style from '../../index.css'
 
 const Icon = (props) => {

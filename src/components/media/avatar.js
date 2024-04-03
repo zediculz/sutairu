@@ -1,17 +1,16 @@
 import React from "react";
-import {getTheme, getNTheme} from '../../utils/utils'
+import { aR } from "../../utils/util";
 import style from '../../index.css'
 
 const Avatar = (props) => {
     
-    const {user, nick, name, size, type, b} = props
+    const {user, nick, size, type} = props
     
     const theme = getTheme()
-    const ntheme = getNTheme()
     const dSize = AvatarSize(size)
-    const rStyle = aliasResolver(props, theme)
     const vStyle = AvatarVariant(type, theme)
-    const mStyle = {...theme, ...ntheme[name], ...rStyle, ...dSize, ...vStyle}
+    const m = aR(props)
+    const mStyle = {...m, ...dSize, ...vStyle}
     const child = nick === undefined || nick === '' ? generateAvatarName(user) : generateAvatarNick(nick)
     
     return (
