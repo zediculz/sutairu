@@ -65,27 +65,13 @@ header .logo {
 
 /*STACKS STYLING*/
 
-.firstStack {
+.stack {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: plum !important;
-}
-
-.firstStack div {
-  border-radius: 6px;
-}
-
-.secondStack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.secondStack div {
-  border-radius: 6px;
+  justify-content: center;
+  & > div, & > section {
+    
+  }
 }
 
 /*ALERT WRAP AND COMPONENTS*/

@@ -45,7 +45,9 @@ export const useTheme = (customStyles) => gtheme.use(customStyles)
 export const getTheme = () => gtheme.get()
 
 
-export const aliasResolver = (props, gt) => {
+export const aliasResolver = (props) => {
+    let gt = getTheme()
+    
     let style = {
       width: props.w === undefined ? 'initial' : props.w,
       height: props.h === undefined ? 'initial' : props.h,
@@ -54,7 +56,8 @@ export const aliasResolver = (props, gt) => {
       flexDirection: props.dir === undefined ? 'row' : props.dir,
       backgroundColor: props.bg === undefined ? gt?.backgroundColor : props.bg,
       color: props.fg === undefined ? gt?.color : props.fg,
-      fontSize: props.font === undefined || props.font === '' ? 'initial' : props.font
+      fontSize: props.font === undefined || props.font === '' ? 'initial' : props.font,
+      display: props.dis === undefined || props.dis === '' ? '' : props.dis
     }
   
     return style
@@ -62,7 +65,6 @@ export const aliasResolver = (props, gt) => {
 }
 
 // Create a condition that targets viewports at least 768px wide
-const mediaQuery = window.matchMedia('(min-width: 425px)')
 
 
 class QMTheme {
@@ -82,5 +84,17 @@ class QMTheme {
 const qtheme = new QMTheme()
 
 // receive custom styling
-export const useMedia = (customStyles) => qtheme.use(customStyles)
+export const useMedia = (obj, mainStyle) => {
+    const q = obj === undefined ? [] : obj[0]
+    let resStyle = obj === undefined ? [] : obj[1]
+    const query = `(max-width: ${q})`
+
+    const mediaQuery = window.matchMedia(query)
+   if (mediaQuery.matches) {
+    let res = {...mainStyle, ...resStyle}
+    return aliasResolver(res)
+   }
+
+}
+
 export const getMedia = () => qtheme.get()

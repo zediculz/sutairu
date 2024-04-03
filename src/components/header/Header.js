@@ -1,5 +1,4 @@
 import React from 'react'
-import style from '../../index.css'
 import { getTheme, aliasResolver, getNTheme } from '../../utils/utils'
 
 function Header(props) {

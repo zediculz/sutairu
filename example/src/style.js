@@ -13,6 +13,11 @@ export const theme = {
     },
     appAlert: {
         margin: '1em'
+    },
+    box: {
+        width: '24%',
+        height: '80%',
+        backgroundColor: 'red'
     }
 }
 
