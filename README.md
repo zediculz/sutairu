@@ -5,8 +5,7 @@ A lightweight react component building blocks.
 ## Components
 Container
 Header
-HStack
-VStack
+Stack
 Block
 Notify
 Alert
