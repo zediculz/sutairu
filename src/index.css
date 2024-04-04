@@ -25,6 +25,8 @@ span {
   align-items: center;
   justify-content: space-evenly;
   scroll-behavior: smooth;
+  scroll-snap-type: proximity;
+  scroll-snap-align: center;
 }
 
 /*HEADER TAG AND COMPONENTS*/
@@ -48,7 +50,6 @@ header {
 
     & > span:hover {
       opacity: 0.8;
-      color: red;
     }
   }
 }
@@ -161,7 +162,9 @@ header .logo {
 }
 
 .button {
-  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*Block  flex wrap*/
@@ -189,7 +192,6 @@ header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
   & img {
     width: 200px;
     height: 300px;

@@ -6,7 +6,7 @@ import {theme} from './style.js'
 
 import 'sutairu/dist/index.css'
 
-useTheme(theme)
+const t = useTheme(theme)
 
 setMedia({
     base: '(min-width: 1024px)',
@@ -15,4 +15,4 @@ setMedia({
     m: '(max-width: 375px)',
 })
 
-ReactDOM.render(<Container><App /></Container>, document.getElementById('root'))
+ReactDOM.render(<Container theme={t}><App /></Container>, document.getElementById('root'))

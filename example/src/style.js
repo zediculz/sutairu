@@ -1,5 +1,7 @@
 
+
+// practice simple theme customizing
 export const theme = {
-    color: '#222'
+   color: '#222',
 }
 

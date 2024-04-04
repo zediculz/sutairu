@@ -1,4 +1,5 @@
 
+// handle global theme
 class GlobalTheme {
     constructor() {
         this.theme = {}
@@ -18,16 +19,25 @@ class GlobalTheme {
         return this.theme
     }
 
+    resolve() {
+
+    }
+
 }
 
-
+// init globaltheme
 const gtheme = new GlobalTheme()
+
+//HOOKS
 // receive custom styling
 export const useTheme = (customStyles) => gtheme.use(customStyles)
-export const getTheme = () => gtheme.get()
 export const setMedia = (media) => gtheme.set(media)
 
+//in-lib hook
+export const getTheme = () => gtheme.get()
 
+// AR means all resolve 
+// this hook resolve and return css in build time
 export const aR = (props) => {
     let style
     let gt = getTheme()
@@ -65,8 +75,8 @@ export const aR = (props) => {
 }
 
 
-
-
+// main alias resolver 
+// this function take a shorthand and trnasalte it to css, also rely on globaltheme
 export const aliasResolver = (props) => {
     let gt = getTheme()
     

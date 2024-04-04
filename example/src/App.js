@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, {Fragment} from 'react'
-import {Header, Heading, Stack, Block, Icon, Nav, Link, Text, Box, getMedia} from 'sutairu'
+import {Header, Heading, Stack, 
+  Block, Icon, Nav, Link, Text, Box} from 'sutairu'
 import 'sutairu/dist/index.css'
 
 const App = () => {
@@ -8,10 +9,11 @@ const App = () => {
   return (
     <Fragment>
        <Header w="100%" h="80px" bg="#fff">
-          <Box w="30%" justify="flex-start">
-            <Heading font="25px">sutairu</Heading>
+          <Box w="30%" justify="flex-start" m={{w: '50%'}}>
+            <Heading font="25px"  mb={{font: '22px'}}  m={{font: '20px'}}>sutairu</Heading>
           </Box>
-          <Nav w="40%" justify="flex-end">
+          <Nav w="40%" justify="flex-end"
+           mb={{w: '60%', font: '16px'}}  m={{w: '40%', font: '14px', justify: 'center'}}>
             <Link>doc</Link>
             <Link>Github</Link>
             <Link>
@@ -20,13 +22,46 @@ const App = () => {
           </Nav>
       </Header>
 
-      <Block h="450px" w="100%" align="center" 
+      <Block h="400px" w="100%" align="center" 
       justify="center" dir="column" bg="white"
-      mb={{bg: 'teal'}} ip={{bg: 'purple'}} m={{bg: 'green'}}>
-        <Heading font="55px">sutairu</Heading>
-        <Text font="18px" fg="red" mb={{fg: 'teal', font: "6px"}} ip={{fg: 'purple', font: "8px"}} m={{fg: 'green', font: "89px"}}>a simple react building block components</Text>
-        <Heading as="h3" font="18px">sutairu</Heading>
+    mb={{}} ip={{}} m={{}}>
+        <Heading font="100px" ip={{font: "90px"}}   
+        mb={{font: "60px"}} m={{font: "56px"}}>sutairu</Heading>
+        <Text font="18px" fg="red" 
+        mb={{font: "15px"}} 
+        m={{font: "14px"}}>
+          a stylish react building block components UI</Text>
       </Block>
+
+      <Stack w="100%" h="200px" justify="space-evenly"
+      mb={{dir: 'column', h: '500px'}} m={{dir: 'column', h: '500px'}}>
+        <Box w="24%" h="80%" dir="column" bg="tomato"
+        mb={{w: '80%', h: '30%'}} ip={{w: '28%'}} m={{w: '80%', h: '30%'}}>
+          <Text>hello</Text>
+          <Heading>Simple theme</Heading>
+        </Box>
+
+        <Box w="24%" h="80%" dir="column" bg="lightgreen"
+        mb={{w: '80%', h: '30%'}} ip={{w: '28%'}} m={{w: '80%', h: '30%'}}>
+          <Text>hello</Text>
+          <Heading>Simple theme</Heading>
+        </Box>
+
+        <Box w="24%" h="80%" dir="column" bg="brown" 
+        mb={{w: '80%', h: '30%'}} ip={{w: '28%'}} m={{w: '80%', h: '30%'}}>
+          <Text>hello</Text>
+          <Heading>Simple theme</Heading>
+        </Box>
+         
+      </Stack>
+
+      <Box h="200px" w="100%" align="center" 
+      justify="center" dir="column" bg="white">
+        <Text font="22px" mb={{font: "18px"}} m={{font: "16px"}}>
+          Neo Brutalism out of the Box
+        </Text>
+      </Box>
+
 
     </Fragment>
   )
