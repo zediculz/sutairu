@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, {Fragment} from 'react'
 import {Header, Heading, Stack, 
-  Block, Icon, Nav, Link, Text, Box} from 'sutairu'
+  Block, Icon, Nav, Link, Text, Box, AppBar, BottomDrawer, Button} from 'sutairu'
 import 'sutairu/dist/index.css'
 
 const App = () => {
   
   return (
     <Fragment>
+      <AppBar>
+
+      </AppBar>
        <Header w="100%" h="80px" bg="#fff">
           <Box w="30%" justify="flex-start" m={{w: '50%'}}>
             <Heading font="25px"  mb={{font: '22px'}}  m={{font: '20px'}}>sutairu</Heading>
@@ -62,7 +65,9 @@ const App = () => {
         </Text>
       </Box>
 
-
+     <BottomDrawer>
+        <Button>#</Button>
+     </BottomDrawer>
     </Fragment>
   )
 }

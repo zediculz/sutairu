@@ -35,9 +35,14 @@ import Avatar from './components/media/avatar'
 import Icon from './components/media/icon'
 
 
+import AppBar from './components/appHeader'
+import BottomDrawer from './components/appHeader/bottom'
+
+
 // tooling 
 // hooks
 import { setMedia, useTheme } from './utils/util'
+
 
 export {
   Container,
@@ -51,5 +56,5 @@ export {
   useTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
   Button,
-  Icon, Avatar, setMedia
+  Icon, Avatar, setMedia, AppBar, BottomDrawer
 }
