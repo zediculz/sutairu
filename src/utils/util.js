@@ -19,6 +19,28 @@ class GlobalTheme {
         return this.theme
     }
 
+    toggle(opt) {
+        // take the one you want to change
+        // change it and set the theme 
+        //this.theme = selected
+        if (opt) {
+            let dark = this.theme.light 
+            let light = this.theme.dark
+            let nt = {dark, light}
+            this.theme = nt
+        }else {
+            let light = this.theme.dark 
+            let dark = this.theme.light
+            let nt = {dark, light}
+            this.theme = nt
+        }
+        
+    }
+
+    changetheme (theme) {
+        
+    }
+
 }
 
 // init globaltheme
@@ -27,16 +49,35 @@ const gtheme = new GlobalTheme()
 //HOOKS
 // receive custom styling
 export const useTheme = (customStyles) => gtheme.use(customStyles)
-export const setMedia = (media) => gtheme.set(media)
+
+export const setMedia = (media) => {
+    gtheme.set(media)
+}
 
 //in-lib hook
-export const getTheme = () => gtheme.get()
+export const getTheme = () => {
+    return gtheme.get()
+}
 
+// handle the color scheme 
+export const resolveSch = (props) => {
+    let style
+    let gt = getTheme()
+    let scheme = window.matchMedia('(prefers-color-scheme: dark)')
 
+    if (scheme.matches) {
+        style = aR(props, gt?.dark)
+        return style
+    }else {
+        style = aR(props, gt?.light)
+        return style
+    }
+}
 
 // AR means all resolve 
 // this hook resolve and return css in build time
-export const aR = (props) => {
+// handle the responsive
+export const aR = (props, gt) => {
     const {neo} = props
     let style
     const {base, ip, mb, m} = gtheme.media
@@ -49,22 +90,22 @@ export const aR = (props) => {
 
     if (smallQuery.matches) {
         let rStyle = {...props, ...props.m}
-        style = aliasResolver(rStyle)
+        style = aliasResolver(rStyle), gt
         return {...style, ...rNeo}
 
     } else if(mobileQuery.matches) {
        let rStyle = {...props, ...props.mb}
-        style = aliasResolver(rStyle)
+        style = aliasResolver(rStyle, gt)
         return {...style, ...rNeo}
 
     } else if(ipadQuery.matches) {
         let rStyle = {...props, ...props.ip}
-        style = aliasResolver(rStyle)
+        style = aliasResolver(rStyle, gt)
         return {...style, ...rNeo}
         
     } else if(baseQuery.matches) {
         let rStyle = {...props, ...props}
-        style = aliasResolver(rStyle)
+        style = aliasResolver(rStyle, gt)
         return {...style, ...rNeo}
     }
     
@@ -73,8 +114,7 @@ export const aR = (props) => {
 
 // main alias resolver 
 // this function take a shorthand and trnasalte it to css, also rely on globaltheme
-export const aliasResolver = (props) => {
-    let gt = getTheme()
+export const aliasResolver = (props, gt) => {
     
     let style = {
       width: props?.w === undefined ? 'initial' : props.w,
@@ -95,16 +135,32 @@ export const aliasResolver = (props) => {
 }
 
 
+// resolve neo props
 const neoResolver = (n) => {
     let neo = n === undefined || n === '' ? {} : n
     
     let style = {
-      border: neo.b === undefined || neo.b === '' ? '' : neo.b,
-      borderBottom: neo.bb === undefined || neo.bb === '' ? '' : neo.bb,
-      boxShadow: neo.bs === undefined || neo.bs === '' ? '' : neo.bs,
+      border: neo?.b === undefined || neo.b === '' ? '' : neo.b,
+      borderBottom: neo?.bb === undefined || neo.bb === '' ? '' : neo.bb,
+      boxShadow: neo?.bs === undefined || neo.bs === '' ? '' : neo.bs,
     }
     
    
     return style
    
+}
+
+
+
+
+export const Toggle = (opt) => {
+    let scheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    if (scheme.matches) {
+        gtheme.toggle(true)
+       
+    }else {
+        gtheme.toggle(false)
+    }
+    
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { aR } from "../../utils/util";
+import { resolveSch } from "../../utils/util";
 import style from '../../index.css'
 
 const Avatar = (props) => {
@@ -9,7 +9,7 @@ const Avatar = (props) => {
     const theme = getTheme()
     const dSize = AvatarSize(size)
     const vStyle = AvatarVariant(type, theme)
-    const m = aR(props)
+    const m = resolveSch(props)
     const mStyle = {...m, ...dSize, ...vStyle}
     const child = nick === undefined || nick === '' ? generateAvatarName(user) : generateAvatarNick(nick)
     

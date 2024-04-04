@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-import { aR } from "../../utils/util"
+import { resolveSch} from "../../utils/util"
 import style from '../../index.css'
 
 const Notify = (props) => {

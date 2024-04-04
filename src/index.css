@@ -298,6 +298,19 @@ header .logo {
   }
 }
 
+
+@media (prefers-color-scheme: dark) {
+  :where(body) {
+    
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :where(body) {
+   
+  }
+}
+
 @media screen and (max-width: 425px) {
 
 }

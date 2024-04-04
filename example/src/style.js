@@ -1,10 +1,5 @@
 
 
-// practice simple theme customizing
-export const theme = {
-   color: '#222',
-}
-
 export const boxx = {
    w: "24%", 
    h: "80%",

@@ -2,9 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import {Container, useTheme, setMedia} from 'sutairu'
-import {theme} from './style.js'
 
 import 'sutairu/dist/index.css'
+
+// practice simple theme customizing
+export const theme = {
+   light: {
+    color: '#222',
+    backgroundColor: '#fff'
+   },
+   dark: {
+    color: '#fff',
+    backgroundColor: '#222'
+   }
+}
 
 useTheme(theme)
 
@@ -16,4 +27,4 @@ setMedia({
 })
 
 
-ReactDOM.render(<Container><App /></Container>, document.getElementById('root'))
+ReactDOM.render(<Container mode="dark"><App /></Container>, document.getElementById('root'))

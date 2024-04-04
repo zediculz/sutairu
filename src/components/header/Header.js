@@ -1,8 +1,8 @@
 import React from 'react'
-import { aR } from '../../utils/util'
+import { resolveSch } from '../../utils/util'
 
 function Header(props) {
-  const mStyle = aR(props)
+  const mStyle = resolveSch(props)
 
   return <header style={mStyle}>{props.children}
   </header>

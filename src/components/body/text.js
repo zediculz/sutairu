@@ -1,8 +1,8 @@
 import React from 'react'
-import { aR } from '../../utils/util'
+import { resolveSch } from '../../utils/util'
 
 const Text = (props) => {
-  let mStyle = aR(props)
+  let mStyle = resolveSch(props)
   return <p style={mStyle}>{props.children}</p>
 }
 

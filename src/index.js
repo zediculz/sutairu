@@ -40,7 +40,7 @@ import BottomDrawer from './components/appHeader/bottom'
 
 // tooling 
 // hooks
-import { setMedia, useTheme } from './utils/util'
+import { setMedia, useTheme, Toggle } from './utils/util'
 
 
 export {
@@ -55,5 +55,5 @@ export {
   useTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
   Button,
-  Icon, Avatar, setMedia, AppBar, BottomDrawer
+  Icon, Avatar, setMedia, AppBar, BottomDrawer, Toggle
 }
