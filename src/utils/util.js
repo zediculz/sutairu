@@ -3,16 +3,10 @@
 class GlobalTheme {
     constructor() {
         this.theme = {}
-        this.media = {}
     }
 
     use(theme) {
         this.theme = theme
-    }
-
-
-    set(media) {
-        this.media = media
     }
 
     get() {
@@ -37,27 +31,20 @@ class GlobalTheme {
         
     }
 
-    changetheme (theme) {
-        
-    }
-
 }
 
 // init globaltheme
 const gtheme = new GlobalTheme()
 
 //HOOKS
-// receive custom styling
+// receive the UI theme
 export const useTheme = (customStyles) => gtheme.use(customStyles)
-
-export const setMedia = (media) => {
-    gtheme.set(media)
-}
 
 //in-lib hook
 export const getTheme = () => {
     return gtheme.get()
 }
+
 
 // handle the color scheme 
 export const resolveSch = (props) => {
@@ -74,22 +61,23 @@ export const resolveSch = (props) => {
     }
 }
 
+
 // AR means all resolve 
 // this hook resolve and return css in build time
 // handle the responsive
 export const aR = (props, gt) => {
     const {neo} = props
     let style
-    const {base, ip, mb, m} = gtheme.media
+    const {base, ip, mb, sm} = gtheme.theme.media
     let rNeo = neoResolver(neo) 
 
     const baseQuery = window.matchMedia(base)
     const ipadQuery = window.matchMedia(ip)
     const mobileQuery = window.matchMedia(mb)
-    const smallQuery = window.matchMedia(m)
+    const smallQuery = window.matchMedia(sm)
 
     if (smallQuery.matches) {
-        let rStyle = {...props, ...props.m}
+        let rStyle = {...props, ...props.sm}
         style = aliasResolver(rStyle), gt
         return {...style, ...rNeo}
 
@@ -113,7 +101,7 @@ export const aR = (props, gt) => {
 
 
 // main alias resolver 
-// this function take a shorthand and trnasalte it to css, also rely on globaltheme
+// this function take a shorthand and translate it to css, also rely on globaltheme
 export const aliasResolver = (props, gt) => {
     
     let style = {
@@ -126,15 +114,14 @@ export const aliasResolver = (props, gt) => {
       color: props?.fg === undefined ? gt?.color : props.fg,
       fontSize: props?.font === undefined || props.font === '' ? 'initial' : props.font,
       display: props?.dis === undefined || props.dis === '' ? '' : props.dis,
-      border: props?.bor === undefined || props.bor === '' ? '' : props.bor,
-      boxShadow: props?.bs === undefined || props.bs === '' ? '' : props.bs
+      textAlign: props?.txalign === undefined || props.txalign === '' ? "" : props.txalign
     }
   
     return style
   
 }
 
-
+// aliaresolver child for neobrutalism design
 // resolve neo props
 const neoResolver = (n) => {
     let neo = n === undefined || n === '' ? {} : n
@@ -143,6 +130,7 @@ const neoResolver = (n) => {
       border: neo?.b === undefined || neo.b === '' ? '' : neo.b,
       borderBottom: neo?.bb === undefined || neo.bb === '' ? '' : neo.bb,
       boxShadow: neo?.bs === undefined || neo.bs === '' ? '' : neo.bs,
+      borderRadius: neo?.br === undefined || neo.br === '' ? '' : neo.br,
     }
     
    
@@ -152,8 +140,8 @@ const neoResolver = (n) => {
 
 
 
-
-export const Toggle = (opt) => {
+//HOOKS TO CHANGE THE UI DYNAMICAL toggle dark and light 
+export const Toggle = () => {
     let scheme = window.matchMedia('(prefers-color-scheme: dark)')
 
     if (scheme.matches) {

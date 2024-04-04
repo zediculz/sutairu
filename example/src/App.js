@@ -1,18 +1,11 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 import {Header, Heading, Stack, 
-  Block, Icon, Nav, Link, Text, Box, Toggle} from 'sutairu'
+  Block, Icon, Nav, Link, Text, Box} from 'sutairu'
 import 'sutairu/dist/index.css'
-import {boxx} from './style'
+import {boxx, t} from './style'
 
 const App = () => {
-  const [toggle, setToggle] = useState(false)
-
-  const handletoggle = () => {
-    setToggle(!toggle)
-    console.log('toggled')
-    Toggle(toggle)
-  }
 
   return (
     <Fragment>
@@ -40,35 +33,35 @@ const App = () => {
         mb={{font: "15px"}} 
         m={{font: "14px"}}>
           a stylish react building block components UI</Text>
-          <Text>{toggle ? 'light mode': 'dark mode'}</Text>
-        <button onClick={handletoggle}>toggle</button>
+        
       </Block>
 
       <Stack w="100%" h="200px" justify="space-evenly"
       mb={{dir: 'column', h: '500px'}} m={{dir: 'column', h: '500px'}}>
 
         <Box bg="tomato"  {...boxx}>
-          <Text>hello</Text>
-          <Heading>Simple theme</Heading>
+          <Text {...t}>hello</Text>
+          <Heading {...t}>Simple theme</Heading>
         </Box>
 
         <Box bg="lightgreen" {...boxx}>
-          <Text>hello</Text>
-          <Heading>Simple theme</Heading>
+          <Text {...t}>hello</Text>
+          <Heading {...t}>Simple theme</Heading>
         </Box>
 
         <Box bg='yellow' {...boxx}>
-          <Text bg="">hi</Text>
-          <Heading>Simple theme</Heading>
+          <Text {...t}>hi</Text>
+          <Heading {...t}>Simple theme</Heading>
         </Box>
          
       </Stack>
 
-      <Block h="200px" w="100%" align="center" 
-      justify="center" dir="column">
-        <Text font="22px" mb={{font: "18px"}} m={{font: "16px"}}>
-          Neo Brutalism out of the Box
-        </Text>
+      <Block h="400px" w="100%">
+        <Box w="40%" h="60%" bg="#fff">
+          <Heading as="h3" font="46px" txalign="center"  >
+            Neo Brutalism out of the Box
+          </Heading>
+        </Box>
       </Block>
 
      
