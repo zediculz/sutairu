@@ -63,18 +63,6 @@ header .logo {
   cursor: pointer;
 }
 
-/*HEADER NAVIGATION*/
-
-/*STACKS STYLING*/
-
-.stack {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & > div, & > section {
-    
-  }
-}
 
 /*Block  flex wrap*/
 .block {
