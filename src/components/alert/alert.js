@@ -9,9 +9,9 @@ const Alert = (props) => {
     const alertbodychild = props.children[2]
 
     const {type} = props
-    let variant = getVariant(alertVariant, type)
+    let variant = getVariant(type)
    
-    const mStyle = resolveSch(props)
+    const mStyle = {...resolveSch(props), ...{color: variant}}
 
     return (
         <aside style={mStyle} className={style.alertwrap}>
@@ -56,15 +56,18 @@ const alertVariant = [
 ]
 
 const getVariant = (type) => {
+    console.log(type)
+
     let selected = alertVariant.filter(va => {
         if (va.name === type) return va 
     })
 
     if(selected.length === 0) {
-        return variant[0]
+        return alertVariant.color
     }
 
-    return selected[0]
+    return selected[0].color
+
 }
 
 

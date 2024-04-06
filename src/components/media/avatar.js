@@ -23,7 +23,7 @@ const Avatar = (props) => {
 // resolve avatar props
 // resolve avatar background props 
 
-export const aliasResolver = (props, gt) => {
+const aliasResolver = (props, gt) => {
     let style = {
       alignItems: props.align === undefined ? 'center' : props.align,
       justifyContent: props.justify === undefined ? 'center' : props.justify,

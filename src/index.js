@@ -6,13 +6,14 @@ import Container from './utils'
 // header main tag and its blocks
 import Header from './components/header/Header'
 import Nav from './components/header/Nav'
-import Heading from './components/header/heading'
 import Link from './components/header/Link'
 
-// Block, Flex stack and Box component
+// Block and Box layout component 
 import Block from './components/body/Block'
 import Box from './components/body/box'
-import Stack from './components/body/VStack'
+
+// Topographys components
+import Heading from './components/header/heading'
 import Text from './components/body/text'
 
 
@@ -21,22 +22,23 @@ import Text from './components/body/text'
 import Notify from './components/alert/notify'
 import { NotifyBody, NotifyHead } from './components/alert/notify'
 
-// alerts main and alert blocks
-import Alert from './components/alert/alert'
-import { AlertBody, AlertHead, AlertIcon } from './components/alert/alert'
-
 
 // button component
 import Button from './components/button/index'
+
+
+// alerts main and alert blocks
+import Alert from './components/alert/alert'
+import { AlertBody, AlertHead, AlertIcon } from './components/alert/alert'
 
 
 // more components
 import Avatar from './components/media/avatar'
 import Icon from './components/media/icon'
 
-
 import AppBar from './components/appHeader'
 import BottomDrawer from './components/appHeader/bottom'
+
 
 // tooling 
 // hooks
@@ -45,15 +47,11 @@ import { useTheme, Toggle } from './utils/util'
 
 export {
   Container,
-  Header,
-  Nav,
+  Header, Nav, Link,
   Heading, Text,
-  Link,
-  Stack,
   Block, Box,
-  Notify, NotifyHead, NotifyBody, 
   useTheme,
   Alert, AlertBody, AlertHead, AlertIcon,
   Button,
-  Icon, Avatar, AppBar, BottomDrawer, Toggle
+  Icon, Toggle
 }
