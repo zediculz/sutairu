@@ -1,7 +1,7 @@
 
 # Sutairu
 
-A lightweight react component building blocks, that generate in-line styling at build time
+A headless react component building blocks, that generate in-line styling at build time
 
 ## Install
 
