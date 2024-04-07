@@ -203,6 +203,30 @@ function App() {
 ip props is going to change the font size to 90px on ipad screen,
 mb props is going to change the font size to 60px on mobile screen,
 sm props is going to change the font size to 56px on smaller mobile screen
+
+
+## Shorthand Props
+width: w
+height: h 
+alignItems: align
+justifyContent: justify
+flexDirection: dir
+backgroundColor: bg
+color: fg 
+fontSize: font
+display: dis
+textAlign: txalign
+
+#### note: all props are actual css value in string quotation.
+
+### Neo Props Shorthand
+border: b
+borderBottom: bb
+boxShadow: bs
+borderRadius: br
+
+#### note: neo props are actual css value in key value pair object.
+
 ## License
 
 MIT
