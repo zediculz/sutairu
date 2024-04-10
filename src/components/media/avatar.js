@@ -1,15 +1,14 @@
 import React from "react";
-import { resolveSch } from "../../utils/util";
 import style from '../../index.css'
 
 const Avatar = (props) => {
     
     const {user, nick, size, type} = props
     
-    const theme = getTheme()
+    const theme = {}
     const dSize = AvatarSize(size)
     const vStyle = AvatarVariant(type, theme)
-    const m = resolveSch(props)
+    const m = {}
     const mStyle = {...m, ...dSize, ...vStyle}
     const child = nick === undefined || nick === '' ? generateAvatarName(user) : generateAvatarNick(nick)
     

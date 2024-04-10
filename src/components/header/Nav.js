@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { resolveSch } from '../../utils/util'
 
 function Nav(props) {
-  const mStyle = resolveSch(props)
+  const mStyle = {}
   return <nav style={mStyle}>{props.children}</nav>
 }
 

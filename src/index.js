@@ -16,7 +16,6 @@ import Box from './components/body/box'
 import Heading from './components/header/heading'
 import Text from './components/body/text'
 
-
 // DISCLOSURE COMPONENTS
 // notify main and its blocks
 import Notify from './components/alert/notify'
@@ -44,14 +43,9 @@ import BottomDrawer from './components/appHeader/bottom'
 // hooks
 import { useTheme, Toggle } from './utils/util'
 
-
 export {
   Container,
-  Header, Nav, Link,
   Heading, Text,
   Block, Box,
-  useTheme,
-  Alert, AlertBody, AlertHead, AlertIcon,
-  Button,
-  Icon, Toggle
+  useTheme
 }

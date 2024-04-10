@@ -1,5 +1,4 @@
 import React from "react"
-import { resolveSch } from "../../utils/util"
 import style from '../../index.css'
 
 const Alert = (props) => {
@@ -11,7 +10,7 @@ const Alert = (props) => {
     const {type} = props
     let variant = getVariant(type)
    
-    const mStyle = {...resolveSch(props), ...{color: variant}}
+    const mStyle = { ...{color: variant}}
 
     return (
         <aside style={mStyle} className={style.alertwrap}>
