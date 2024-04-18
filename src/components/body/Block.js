@@ -1,28 +1,26 @@
 import React from 'react'
-import { getBp } from '../../utils/util'
+
 import styled from 'styled-components'
-import { aRes } from '../../utils/t'
+import { aRes, getBp } from '../../utils/resolve'
 
 let bp = getBp()
 
 export const Block = styled("section")`
-    transition: 1s ease-in;
-    cursor: pointer;
     ${props => aRes(props, props)}
 
     &:hover {
       opacity: .9;
     }
 
-    @media only screen and ${bp.ip}  {
+    @media only screen and ${bp?.ip}  {
         ${props => aRes(props, props.$ip)}
     };
 
-    @media only screen and ${bp.mb}  {
+    @media only screen and ${bp?.mb}  {
         ${props => aRes(props, props.$mb)}
     };
 
-    @media only screen and (max-width: 375px)  {
+    @media only screen and ${bp?.sm}  {
         ${props => aRes(props, props.$sm)}
     }
 `

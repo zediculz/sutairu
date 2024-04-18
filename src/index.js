@@ -6,15 +6,15 @@ import Container from './utils'
 // header main tag and its blocks
 import Header from './components/header/Header'
 import Nav from './components/header/Nav'
-import Link from './components/header/Link'
+import NavItem from './components/header/Link'
 
 // Block and Box layout component 
 import Block from './components/body/Block'
 import Box from './components/body/box'
 
 // Topographys components
-import Heading from './components/header/heading'
-import Text from './components/body/text'
+import H from './components/topography/heading'
+import Text from './components/topography/text'
 
 // DISCLOSURE COMPONENTS
 // notify main and its blocks
@@ -41,11 +41,11 @@ import BottomDrawer from './components/appHeader/bottom'
 
 // tooling 
 // hooks
-import { useTheme, Toggle } from './utils/util'
+import { loadTheme } from './utils/resolve'
 
 export {
   Container,
-  Heading, Text,
-  Block, Box,
-  useTheme
+  H, Text,
+  Block, Box, 
+  Header, Nav, NavItem, loadTheme
 }

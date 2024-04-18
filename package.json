@@ -1,7 +1,7 @@
 {
   "name": "sutairu-ui",
-  "version": "0.1.21",
-  "description": "inline-styling react component UI",
+  "version": "0.2.11",
+  "description": "A headless react component UI building blocks",
   "author": "@zediculz",
   "license": "MIT",
   "repository": {
@@ -64,5 +64,8 @@
   ],
   "directories": {
     "example": "example"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001608"
   }
 }

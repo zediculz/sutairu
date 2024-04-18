@@ -6,22 +6,21 @@ let nn = {
 }
 
 
-      
 export const block = {
-   $w: '100%',
+   $w: '80%',
    $h: '200px',
    $justify: 'space-evenly',
-   $ip: {$bg: 'green'}, 
-   $mb: {$dir: 'column', $h: '500px'}, 
-   $sm: {$dir: 'column', $h: '500px'}
+   $ip: { $w: '100%',}, 
+   $mb: {$dir: 'column', $h: '600px', $w: '100%'}, 
+   $sm: {$dir: 'column', $h: '560px', $w: '100%'}
 }
 
-export const b = {
-   $w: "24%", 
+
+export const box = {
+   $w: "25%", 
    $h: "80%",
-   $dir: "column",
-   $mb: {$w: '80%', $h: '30%'}, 
-   $ip: {$w: '28%'}, 
-   $sm: {$w: '80%', $h: '30%'},
+   $dir: "column", 
+   $mb: {$w: '80%', $h: '28%'}, 
+   $sm: {$w: '80%', $h: '27%'},
    ...nn
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { getBp } from '../../utils/util'
+
 import styled from 'styled-components'
-import { tR } from '../../utils/t'
+import { tR, getBp } from '../../utils/resolve'
 
 let bp = getBp()
 
-export const Heading = styled("h1")`
+export const H = styled("h1")`
     ${props => tR(props, props)}
 
     @media only screen and ${bp.ip}  {
@@ -21,4 +21,4 @@ export const Heading = styled("h1")`
     }
 `
 
-export default Heading
+export default H

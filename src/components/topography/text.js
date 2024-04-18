@@ -1,7 +1,6 @@
 import React from 'react'
-import { getBp } from '../../utils/util'
 import styled from 'styled-components'
-import { tR } from '../../utils/t'
+import { tR, getBp } from '../../utils/resolve'
 
 let bp = getBp()
 
@@ -21,5 +20,6 @@ export const Text = styled("p")`
         ${props => tR(props, props.$sm)}
     }
 `
+
 
 export default Text
