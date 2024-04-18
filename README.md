@@ -17,7 +17,7 @@ You provide your theming object and wrap your <App /> within the Container compo
 
 
 ```js
-import { Container, useTheme } from "sutairu-ui";
+import { Container, loadTheme } from "sutairu-ui";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -32,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ### useTheme Hook 
 The themes object defines some basic color options for both light and dark mode and also the media query sizes.
 
-to define your app theme import the useTheme hook and pass in the theme object, 
+to define your app theme import the loadTheme hook and pass in the theme object, 
 
 the object should contains 
 1. light: which hold the color and backgroundColor of your app in light mode,
@@ -56,7 +56,7 @@ const theme = {
     }
 }
 
-useTheme(theme)
+loadTheme(theme)
 ```
 
 ## Basic Usage
@@ -76,7 +76,7 @@ const App = () => {
 By default sutairu layout components uses flex for laying out the UI and also accept shorthand props prefix with ($) to easily style them the way you want. 
 
 ### Block Layout Component
-Block component return a <section> tag by default, which most of the time can be used as a wrapper for multiple layouts.
+Block component return a section tag by default, which most of the time can be used as a wrapper for multiple layouts.
 
 ```javascript
 import { Block, Box } from "sutairu-ui";
@@ -97,7 +97,7 @@ function App() {
 ```
 
 ### Box Layout Component
-Box component return a <div> tag by default, most of the time can also be used as a wrapper for topography or as a layout.
+Box component return a div tag by default, most of the time can also be used as a wrapper for topography or as a layout.
 
 ```javascript
 import { Box } from "sutairu-ui";
@@ -180,7 +180,7 @@ import { Box, H } from "sutairu-ui";
 function App() {
   return (
     <Box $w="100%" $h="80px">
-        <H $font="100px" $ip={{font: "90px"}}   $mb={{font: "60px"}} $sm={{font: "56px"}}>sutairu</H>
+        <H $font="100px" $ip={{font: "90px"}} $mb={{font: "60px"}} $sm={{font: "56px"}}>sutairu</H>
     </Box>
   );
 }
